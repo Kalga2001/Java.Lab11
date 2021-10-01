@@ -1,0 +1,26 @@
+package com.company;
+import java.util.Scanner;
+import java.lang.String;
+
+ class Main {
+
+     public static void main(String[] args)
+     {
+         Scanner input=new Scanner(System.in);
+         String s=input.nextLine();;
+         String sentence[]=s.split(" ");
+         for(String sen:sentence)
+         {
+             if(sen.endsWith("ed"))
+             {
+                 System.out.println("Correct!");
+             }
+
+             else
+             {
+                 System.out.println("Error!");
+             }
+         }
+
+     }
+
