@@ -1,0 +1,68 @@
+package com.company;
+import java.util.Scanner;
+import java.lang.String;
+ class Main {
+
+         public static void main( String [] args )
+         {
+
+             String morse[] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
+                     "--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..",
+                     "|",".---","..---","...--","....-",".....","-....","--...","---..","----.","-----"};
+             String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890";
+
+             String inputType = new String();
+             Scanner Input=new Scanner(System.in);
+             System.out.println("Выберите цифру: " +"\n"+"1.С Морза в английский " +"\n"+ "2. С английского в Морза ");
+             int select= Input.nextInt();
+                switch (select)
+                {
+                    case 1:
+                        String morse_phrase= Input.next();
+                        morseToEnglish(alphabet, morse,morse_phrase);
+                        break;
+                    case 2:
+                        String engl_phrase=Input.next();
+                        englishToMorse(alphabet, morse,engl_phrase);
+                        break;
+                }
+         }
+
+         public static void englishToMorse(String alphabet, String morse[],String phrase)
+         {
+             phrase = phrase.toUpperCase();
+
+             for( int i = 0; i < phrase.length(); i++ )
+             {
+                 if( phrase.charAt(i) == ' ' )
+                 {
+                     System.out.print("| ");
+                     continue;
+                 }
+
+                 for( int j = 0; j < alphabet.length(); j++ )
+                 {
+                     if( alphabet.charAt(j) == phrase.charAt(i) )
+                     {
+                         System.out.print( morse[j] + " " );
+                         break;
+                     }
+                 }
+             }
+         }
+
+         public static void morseToEnglish(String alphabet, String morse[], String morseCode)
+         {
+
+             for( int i = 0; i < morseCode.length(); i++ )
+             {
+                 for( int j = 0; j < morse.length; j++ )
+                 {
+                     if ( morse[j] == morseCode)
+                         System.out.print( alphabet.charAt(j) );
+
+                 }
+             }
+         }
+     }
+
