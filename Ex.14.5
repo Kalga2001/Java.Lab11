@@ -1,0 +1,32 @@
+package com.company;
+import java.util.Scanner;
+import java.lang.String;
+
+class Main {
+    public static String firstUpperCase(String word){
+        if(word == null || word.isEmpty()) return "";//или return word;
+        return word.substring(0, 1).toUpperCase() + word.substring(1);
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String articles[] = { "the", "one", "some", "any", "a"};
+        String nouns[] = {"boy", "girl", "dog", "town", "car"};
+        String verbs[] = {"drove", "jumped", "ran", "walked", "skipped"};
+        String prepositions[] = {"to", "from", "over", "under", "on"};
+
+        int rn = (int) (Math.random() * 5);
+        for (int k = 0; k < 20; k++) {
+            if ((k % 5) == 0) {
+                rn = 0;
+            } else {
+                rn++;
+                System.out.println("Предложение " + (k + 1));
+                System.out.println(firstUpperCase(articles[rn]) + "\t" + nouns[rn] + "\t" + verbs[rn] + "\t"
+                        + prepositions[rn] + "\t" + articles[rn] + "\t" + nouns[rn]);
+
+            }
+
+        }
+    }
+}
