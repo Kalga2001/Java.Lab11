@@ -1,0 +1,14 @@
+import java.text.ParsePosition;
+import java.util.Date;
+import java.util.Locale;
+
+ class Main {
+     public static void main(String[] args)
+     {
+         Scanner input=new Scanner(System.in);
+         String date="04/25/1955";
+
+         SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy",Locale.ENGLISH);
+         System.out.println(sdf.format(new Date(date)));
+     }
+ }
